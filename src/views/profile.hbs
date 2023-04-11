@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>{{userName}} | Profile</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto|Rubik&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/css/main.css">
+    <link rel="stylesheet" type="text/css" href="/css/profile.css">
+</head>
+<body>
+
+{{> header}}
+
+<div id="container">
+    <div id="content">
+        <h1 id="title">{{userName}}</h1> 
+        <h2 id="idNum">Email: {{email}}</h2>
+        <p id="bio">{{bio}}</p>
+        <h2 id="link-title">Links:</h2>
+        <ul id="links">
+        {{#each links}}
+            <li><a href="https://www.{{this}}">{{this}}</a></li>
+        {{/each}}
+        </ul>
+    </div>
+</div>
+
+</body>
+</html>

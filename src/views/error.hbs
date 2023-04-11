@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> File Not Found </title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto|Rubik&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/css/main.css">
+</head>
+<body>
+
+{{> header}}
+
+<div id="container">
+    <div id="content">
+        <h1 id="title"> {{code}} </h1>
+        {{#if (isEqual code 404)}}
+        <p> Sorry, file not found </p>
+        {{else if (isEqual code 500)}}
+        <p> An internal server error has occurred. </p>
+        {{else if (isEqual code 400)}}
+        <p> Bad Request, User not found.</p>
+        {{/if}}
+    </div>
+</div>
+
+</body>
+</html>
