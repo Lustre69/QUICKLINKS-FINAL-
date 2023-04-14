@@ -2,6 +2,7 @@
 import { Router } from "express";
 // Routers
 import signupRouter from "./signupRouter.js";
+import loginRouter from "./loginRouter.js";
 import profileRouter from "./profileRouter.js";
 import successRouter from "./successRouter.js";
 
@@ -19,6 +20,11 @@ routes.get("/", (req, res) => {
   Use routes defined in ./signupRouter.js
 */
 routes.use(signupRouter);
+
+/*
+  Use routes defined in ./loginRouter.js
+*/
+routes.use(loginRouter);
 
 /*
   Use routes defined in ./successRouter.js
