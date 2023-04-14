@@ -1,0 +1,22 @@
+<!-- settings.hbs -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Settings</title>
+</head>
+<body>
+  <h1>Settings</h1>
+  <form action="/settings" method="post">
+    <label for="bio">Bio:</label>
+    <textarea id="bio" name="bio">{{bio}}</textarea><br>
+    <label for="link1">Link 1:</label>
+    <input type="text" id="link1" name="link1" value="{{link1}}"><br>
+    <label for="link2">Link 2:</label>
+    <input type="text" id="link2" name="link2" value="{{link2}}"><br>
+    <label for="link3">Link 3:</label>
+    <input type="text" id="link3" name="link3" value="{{link3}}"><br>
+    <input type="submit" value="Save">
+  </form>
+</body>
+</html>
