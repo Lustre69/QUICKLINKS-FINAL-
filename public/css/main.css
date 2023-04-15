@@ -349,7 +349,6 @@ nav > a:hover {
     margin-bottom: 100px;
 }
 
-
 .rectangle-container {
   display: flex;
   justify-content: center;
@@ -357,12 +356,39 @@ nav > a:hover {
 }
 
 .rectangle1, .rectangle2, .rectangle3 {
+  position: relative;
   width: 459px;
   height: 799px;
   margin: 0 20px;
   border-radius: 20px;
   overflow: hidden;
   box-sizing: border-box;
+  padding-bottom: 80px; /* add padding to create space for text */
+}
+
+.rectangle1 .rectangle-text, 
+.rectangle2 .rectangle-text, 
+.rectangle3 .rectangle-text {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 20px;
+  text-align: center;
+  background-color: #2C56EA; /* add background color to make text more readable */
+  color: white;
+  font-size: 24px;
+  line-height: 1.5;
+  font-weight: 600;
+  font-family: 'Roboto', sans-serif;
+}
+
+.rectangle1 img, 
+.rectangle2 img, 
+.rectangle3 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 
