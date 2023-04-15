@@ -1,8 +1,6 @@
-// import module `mongoose`
 import mongoose from "mongoose";
 
-// defines the schema for collection `users`
-const UserSchema = new mongoose.Schema({
+const userSchema = new mongoose.Schema({
   userName: {
     type: String,
     required: true,
@@ -15,24 +13,53 @@ const UserSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  avatar: { //Idk how to implement this
-    type: String,
+  avatar: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Image",
   },
   bio: {
-    type: String
+    type: String,
+    maxlength: 200,
   },
-  tags: String,
-  links: {
+  tags: {
     type: [String],
+    validate: {
+      validator: function (v) {
+        return v.length <= 5;
+      },
+      message: "User can have at most 5 tags",
+    },
+  },
+  links: {
+    type: [{
+      name: {
+        type: String,
+        required: true,
+        trim: true,
+        maxlength: 20,
+      },
+      url: {
+        type: String,
+        required: true,
+        trim: true,
+        maxlength: 200,
+        validate: {
+          validator: function (v) {
+            return /^https?:\/\/(.*)/.test(v);
+          },
+          message: "Invalid URL",
+        },
+      },
+    }],
+    validate: {
+      validator: function (v) {
+        return v.length <= 5;
+      },
+      message: "User can have at most 5 links",
+    },
   },
 });
 
-const User = mongoose.model("User", UserSchema);
+const User = mongoose.model("User", userSchema);
 
-/*
-  exports a mongoose.model object based on `UserSchema` (defined above)
-  when another script exports from this file
-  This model executes CRUD operations
-  to collection `users` -> plural of the argument `User`
-*/
 export default User;
