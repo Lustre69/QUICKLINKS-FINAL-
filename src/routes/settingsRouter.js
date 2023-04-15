@@ -9,7 +9,7 @@ const settingsRouter = Router();
 // Render the settings view
 settingsRouter.get("/settings", (req, res) => {
   // Render the settings view
-  res.render("settings");
+  res.render("settings", { userName: req.params.userName });
 });
 
 // Handle form submission from settings view

@@ -11,6 +11,7 @@ const profileRouter = Router();
   and display the details inside the `profile` view.
 */
 
+
 profileRouter.get("/profile/:userName", (req, res) => {
   // query where `idNum` is equal to URL parameter `idNum`
 
@@ -58,6 +59,7 @@ profileRouter.get("/profile/:userName", (req, res) => {
         
       };
       // render the profile view with the retrieved details
+      
       res.render("profile", details);
     })
     .catch((err) => {
@@ -68,5 +70,7 @@ profileRouter.get("/profile/:userName", (req, res) => {
       });
     });
 });
+
+
 
 export default profileRouter;

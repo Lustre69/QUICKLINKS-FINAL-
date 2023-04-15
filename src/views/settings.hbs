@@ -8,43 +8,23 @@
 </head>
 <body>
 
+
 {{> header}}
 <div id="container">
     <div id="content">
         <h1 id="title"> Settings </h1>
-        <!-- 
-            Form attribute `method`, when set to "post", will send a post request to the same URL as the current page with the contents of the inputfields.
-            The request body data is encoded in `urlencoded` (or "application/x-www-form-urlencoded") format.
-            As such, the express.urlencoded() middleware (instead of express.json()) must be used to parse the data.
-            A custom url can be set by specifying the action attribute. 
-            E.g., <form id="signup" action="/register" method="post">
-                sends a POST request to the url `/register`
-
-            The alternative is to use the fetch API to send data in the request body:
-            1. Uncomment the script element below to use the fetch API approach
-            2. Remove the form's method attribute and its value
-            3. Edit `/src/routes/signupRouter.js:9` to use `express.json()` instead of `express.urlencoded()`
-        -->
-        <!-- 
-            <script src="/js/signup.js"></script> 
-        -->
-        <form id="signup" method="post">
-
-            {{!-- <input type="text" name="userName" id="userName" class="field" placeholder="Username" required> <br>
-            <input type="text" name="email" id="email" class="field" placeholder="Email" required> <br>
-            <input type="text" name="pw" id="pw" class="field" placeholder="Password" required> <br> --}}
+        <form id="signup" method="post" action="/settings">
             <input type="text" name="bio" id="bio" class="field" placeholder="Add a bio" > <br>
-            <input type="text" name="link1" id="link" class="field" placeholder="Add link 1" > <br>
-            <input type="text" name="link2" id="link" class="field" placeholder="Add link 2" > <br>
-            <input type="text" name="link3" id="link" class="field" placeholder="Add link 3" > <br>
-
-            {{!-- <input type="submit" id="submit" value="SUBMIT"> --}}
-         <form id="signup" method="post" action="/profile">
-    
-        <button type="submit" id="submit">Save</button>
+            <input type="text" name="link1" id="link1" class="field" placeholder="Add link 1" > <br>
+            <input type="text" name="link2" id="link2" class="field" placeholder="Add link 2" > <br>
+            <input type="text" name="link3" id="link3" class="field" placeholder="Add link 3" > <br>
+            <button type="submit" id="submit">Save</button>
         </form>
     </div>
 </div>
+
+</body>
+</html>
 
 
 </body>
