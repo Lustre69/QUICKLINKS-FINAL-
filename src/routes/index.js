@@ -5,6 +5,8 @@ import signupRouter from "./signupRouter.js";
 import loginRouter from "./loginRouter.js";
 import profileRouter from "./profileRouter.js";
 import successRouter from "./successRouter.js";
+import searchRouter from "./searchRouter.js";
+
 
 const routes = Router();
 
@@ -35,6 +37,11 @@ routes.use(successRouter);
   Use routes defined in ./profileRouter.js
 */
 routes.use(profileRouter);
+
+/*
+  Use routes defined in ./searchRouter.js
+*/
+routes.use(searchRouter);
 
 /* 
   If the route is not defined in the server, render `../views/error.hbs`.
