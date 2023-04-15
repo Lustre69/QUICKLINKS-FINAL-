@@ -1,10 +1,23 @@
-// settingsRouter.js
-
 import { Router } from "express";
 // Models
 import User from "../models/UserModel.js";
 
 const settingsRouter = Router();
+
+// Middleware function to authenticate user and set req.user object
+const authenticateUser = (req, res, next) => {
+  // You can implement your own authentication logic here
+  // For example, you can use a session or a JWT to authenticate the user
+  // Once the user is authenticated, set the req.user object with user data
+  // Example: req.user = { userName: 'username', email: 'email' }
+
+  // For demonstration purposes, assuming user is already authenticated with userName 'username'
+  req.user = { userName: 'username', email: 'email' };
+  next();
+};
+
+// Use the authenticateUser middleware for all routes in the settingsRouter
+settingsRouter.use(authenticateUser);
 
 // Render the settings view
 settingsRouter.get("/settings", (req, res) => {
