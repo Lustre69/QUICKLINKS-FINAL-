@@ -1,4 +1,18 @@
 <nav id="header">
   <a href="/">Home</a>
   {{!-- <a href="/signup">Sign Up</a> --}}
+
+  <div class="search-bar">
+    <input type="text" id="search-bar" placeholder="Who are you trying to find...">
+    <button type="submit" onclick="search()">Search<i class="fas fa-search"></i></button> 
+  </div>
+</div>
 </nav>
+
+<script>
+  function search(){
+    const query = document.getElementById("search-bar").value;
+    const string = searchInput.value;
+    console.log(string);
+  }
+</script>
