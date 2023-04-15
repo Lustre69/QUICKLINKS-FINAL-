@@ -14,7 +14,6 @@
 <div id="container">
     <div id="content">
         <h1 id="title">{{userName}}</h1> 
-        <h2 id="idNum">Email: {{email}}</h2>
         <p id="bio">{{bio}}</p>
         <h2 id="link-title">Links:</h2>
         <ul id="links">
@@ -22,9 +21,74 @@
             <li><a href="https://www.{{this}}">{{this}}</a></li>
         {{/each}}
         </ul>
-        <a href="/settings/{{userName}}" id="settings-link">Settings</a> <!-- Add a link/button to the settings page -->
+        <div id="buttons-container">
+        <button id="settings-btn">Settings</button>
+        <button id="back-btn">Back</button>
+    </div>
     </div>
 </div>
+<script>
+// Get the settings button
+const settingsBtn = document.getElementById("settings-btn");
 
+// When the user clicks the settings button, do something
+settingsBtn.onclick = function() {
+  // Add code here to show settings
+}
+
+// Get the back button
+const backBtn = document.getElementById("back-btn");
+
+// When the user clicks the back button, go back one page
+backBtn.onclick = function() {
+  window.history.back();
+}
+
+</script>
 </body>
 </html>
+<style>
+  /* Settings and back buttons */
+      #buttons-container {
+    position: fixed;
+    bottom: 20px;
+    right: 550px;
+    display: flex;
+    justify-content: space-between;
+    width: 160px;
+    }
+      
+      #settings-btn {
+        background-color: #4A4E69;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 15px;
+        font-size: 16px;
+        cursor: pointer;
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+        transition: all 0.2s ease;
+      }
+      
+      #settings-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.4);
+      }
+      
+      #back-btn {
+        background-color: #4A4E69;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 15px;
+        font-size: 16px;
+        cursor: pointer;
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+        transition: all 0.2s ease;
+      }
+      
+      #back-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.4);
+      }
+    </style>
