@@ -1,4 +1,26 @@
 <nav id="header">
   <a href="/">Home</a>
   {{!-- <a href="/signup">Sign Up</a> --}}
+
+  {{!-- <div class="search-bar">
+    <form onsubmit="return search(event)">
+      <input type="text" id="search-bar" placeholder="Who are you trying to find...">
+      <button type="submit">Search</button> 
+    </form>
+  </div>
+   --}}
+   <form id="search-form">
+          <input type="text" placeholder="Asan na." id="searchInput">
+          <button type="submit">Search</button> 
+      </form>
 </nav>
+
+<script>
+  const searchForm = document.getElementById("search-form");
+
+searchForm.addEventListener("submit", (event) => {
+  event.preventDefault(); // prevent the form from submitting normally
+  const searchInput = document.getElementById("searchInput").value;
+  window.location.href = /profile/${searchInput}; // redirect the user to the search results page
+});
+</script>
