@@ -5,6 +5,7 @@ import signupRouter from "./signupRouter.js";
 import loginRouter from "./loginRouter.js";
 import profileRouter from "./profileRouter.js";
 import successRouter from "./successRouter.js";
+import settingsRouter from "./settingsRouter.js";
 
 const routes = Router();
 
@@ -36,6 +37,7 @@ routes.use(successRouter);
 */
 routes.use(profileRouter);
 
+routes.use(settingsRouter);
 /* 
   If the route is not defined in the server, render `../views/error.hbs`.
   Always define this as the last middleware!
