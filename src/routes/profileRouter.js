@@ -1,5 +1,3 @@
-// profilerouter.js
-
 import { Router } from "express";
 // Models
 import User from "../models/UserModel.js";
@@ -7,18 +5,23 @@ import User from "../models/UserModel.js";
 const profileRouter = Router();
 
 /*
-  When a client sends an HTTP GET request for `/profile/:userName`,
-  where `userName` is a parameter,
-  retrieve the User with the specified `userName` from the database
+  When a client sends an HTTP GET request for `/profile/:idNum`,
+  where `idNum` is a parameter,
+  retrieve the User with the specified `idNum` from the database
   and display the details inside the `profile` view.
 */
 
 profileRouter.get("/profile/:userName", (req, res) => {
-  // query where `userName` is equal to URL parameter `userName`
-  const query = { userName: req.params.userName };
+  // query where `idNum` is equal to URL parameter `idNum`
+
+
+  const query = { userName: req.params.userName }
+
 
   // fields to be returned
-  const projection = "userName email pw avatar bio tags links";
+  const projection = "userName email pw avatar bio tags links"
+
+
 
   /*
     calls the function findOne()
@@ -42,7 +45,7 @@ profileRouter.get("/profile/:userName", (req, res) => {
         return;
       }
       // Otherwise:
-      const details = {
+      const details = { //Get everything to be safe
         userName: result.userName,
         email: result.email,
         pw: result.pw,
@@ -50,12 +53,15 @@ profileRouter.get("/profile/:userName", (req, res) => {
         bio: result.bio,
         tags: result.tags,
         links: result.links,
+
+
+        
       };
       // render the profile view with the retrieved details
       res.render("profile", details);
     })
     .catch((err) => {
-      console.error("An error occurred: " + err);
+      console.error("An error occured: " + err);
       res.statusCode = 500;
       res.render("error", {
         code: 500,
