@@ -1,20 +1,11 @@
-body{
-  background-color: rgb(8, 0, 0);
+/* General styles */
+body {
+  background-color: #080000;
+  font-family: 'Rubik', sans-serif;
+  color: #fff;
 }
 
-h1#name {
-  font-family: Rubik;
-  color: rgb(252, 207, 111);
-  font-weight: 900;
-  margin: 40px;
-  font-size: 80px;
-}
-
-h2#idNum {
-  font-family: Rubik;
-  margin: 20px;
-  font-size: 40px;
-}
+/* Profile container */
 #container {
   width: 80%;
   margin: 0 auto;
@@ -23,62 +14,121 @@ h2#idNum {
 
 /* Profile content */
 #content {
-  background-color: rgb(144, 168, 157);
+  background-color: #2B2D42;
   border-radius: 10px;
-  box-shadow: 0px 5px 10px rgb(1, 27, 255);
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
   padding: 40px;
 }
 
 /* Profile title */
 #title {
-  font-family: 'Rubik', sans-serif;
-  font-size: 36px;
+  font-size: 3rem;
   font-weight: bold;
   margin: 0 0 10px;
-  color: #333;
+  text-align: center;
 }
 
 /* Profile email */
 #idNum {
-  font-family: 'Roboto', sans-serif;
-  font-size: 24px;
+  font-size: 1.5rem;
   font-weight: bold;
   margin: 0 0 10px;
-  color: #555;
+  text-align: center;
 }
 
 /* Profile bio */
 #bio {
-  font-family: 'Roboto', sans-serif;
-  font-size: 18px;
+  font-size: 1.2rem;
   margin: 20px 0;
   line-height: 1.5;
-  color: #555;
 }
 
 /* Profile links */
 #links {
-  font-family: 'Roboto', sans-serif;
-  font-size: 18px;
+  font-size: 1.2rem;
   margin: 20px 0;
   line-height: 1.5;
-  color: rgb(255, 255, 255);
 }
 
 /* Profile links title */
 #link-title {
-  font-family: 'Rubik', sans-serif;
-  font-size: 24px;
+  font-size: 1.5rem;
   font-weight: bold;
   margin: 0 0 10px;
-  color: #333;
 }
 
-
+/* Profile links items */
 #links li {
-  background-color: rgb(75, 123, 224);
+  background-color: #4A4E69;
   border-radius: 5px;
   padding: 10px;
   margin-bottom: 10px;
-  box-shadow: 0px 2px 5px rgb(0, 0, 0);
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+  font-size: 1.2rem;
+}
+
+/* Profile picture */
+img {
+  display: block;
+  margin: 20px auto;
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Edit profile picture modal */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 10% auto;
+  padding: 20px;
+  border-radius: 5px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 500px;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 2rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+}
+
+#edit-avatar-btn {
+  position: absolute;
+  bottom: -10px;
+  right: -10px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #4A4E69;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+#edit-avatar-btn:hover {
+  transform: translateY(-2px
 }
