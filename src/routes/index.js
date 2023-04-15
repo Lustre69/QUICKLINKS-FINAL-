@@ -4,7 +4,9 @@ import { Router } from "express";
 import signupRouter from "./signupRouter.js";
 import loginRouter from "./loginRouter.js";
 import profileRouter from "./profileRouter.js";
-import successRouter from "./successRouter.js";
+import signup_successRouter from "./signup_successRouter.js";
+import login_successRouter from "./login_successRouter.js";
+import settings_successRouter from "./settings_successRouter.js";
 import settingsRouter from "./settingsRouter.js";
 
 const routes = Router();
@@ -28,9 +30,24 @@ routes.use(signupRouter);
 routes.use(loginRouter);
 
 /*
-  Use routes defined in ./successRouter.js
+  Use routes defined in ./loginRouter.js
 */
-routes.use(successRouter);
+routes.use(settingsRouter);
+
+/*
+  Use routes defined in ./signup_successRouter.js
+*/
+routes.use(signup_successRouter);
+
+/*
+  Use routes defined in ./login_successRouter.js
+*/
+routes.use(login_successRouter);
+
+/*
+  Use routes defined in ./settings_successRouter.js
+*/
+routes.use(settings_successRouter);
 
 /*
   Use routes defined in ./profileRouter.js

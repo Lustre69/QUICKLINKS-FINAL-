@@ -1,0 +1,24 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Welcome! </title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto|Rubik&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/css/main.css">
+</head>
+<body>
+
+{{> header}}
+
+<div id="container">
+    <div id="content">
+
+        <h1 id="title"> Your Profile has been saved {{userName}}!</h1>
+        {{!-- <p> Go to your profile <a href="/profile/{{userName}}">here</a></p> --}}
+        
+        <a href="/profile/{{userName}}" class="profile-button">Return to Profile</a>
+    </div>
+</div>
+
+</body>
+</html>

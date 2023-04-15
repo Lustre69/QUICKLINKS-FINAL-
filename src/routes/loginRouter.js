@@ -42,7 +42,7 @@ loginRouter.post("/login", (req, res) =>{
             // login successful
             res.statusCode = 200;
             res.redirect(
-                "/success?userName=" + key.userName
+                "/success_login?userName=" + key.userName
             );  
         } catch(err) {
                 console.error("An error occured: " + err);

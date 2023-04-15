@@ -78,7 +78,7 @@ signupRouter.post("/signup", (req, res) => {
         defined in `./successController.js`
       */
       res.redirect(
-        "/success?userName=" + userName
+        "/success_signup?userName=" + userName
       );
     })
     .catch((err) => {

@@ -1,8 +1,8 @@
 import { Router } from "express";
 
-const successRouter = Router();
+const signup_successRouter = Router();
 
-successRouter.get("/success", (req, res) => {
+signup_successRouter.get("/success_signup", (req, res) => {
   /*
     when passing values using HTTP GET method
     the values are stored in the req.query object
@@ -21,7 +21,7 @@ successRouter.get("/success", (req, res) => {
 
   };
   // render `../views/success.hbs`
-  res.render("success", details);
+  res.render("success_signup", details);
 });
 
-export default successRouter;
+export default signup_successRouter;
