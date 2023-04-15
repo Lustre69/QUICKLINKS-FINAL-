@@ -236,6 +236,20 @@ nav > a:hover {
   color: #2C56EA;
   margin-top: 20px;
 }
+
+.errMessage {
+  font-family: 'Jost';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #2C56EA;
+  margin-top: 20px;
+}
+
 .bigbutton {
   position: fixed;
   top: 30px;
@@ -274,6 +288,27 @@ nav > a:hover {
   text-align: center;
   margin-top: 30px;
 }
+
+.bigbutton3 {
+  position: fixed;
+  top: 120px;
+  right: 30px;
+  width: 290px !important;
+  height: 80px;
+  font-family: 'Jost', sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  background-color: #2C56EA;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 40px;
+  cursor: pointer;
+  z-index: 1;
+  transition: all 0.3s ease;
+}
+
 .rectangle {
   position: relative;
   margin-top: 50px; 
