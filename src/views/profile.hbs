@@ -5,17 +5,103 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto|Rubik&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="/css/main.css">
     <link rel="stylesheet" type="text/css" href="/css/profile.css">
-    
+    <style>
+      /* The Modal (background) */
+      .modal {
+        display: none; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Sit on top */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+      }
+
+      /* Modal Content/Box */
+      .modal-content {
+        background-color: #fefefe;
+        margin: 10% auto; /* 10% from the top and centered */
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%; /* Could be more or less, depending on screen size */
+      }
+
+      /* The Close Button */
+      .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+      }
+
+      .close:hover,
+      .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+      }
+
+      #edit-avatar-btn {
+        float: right;
+        margin: 10px;
+      }
+      
+      /* Settings and back buttons */
+      #buttons-container {
+    position: fixed;
+    bottom: 20px;
+    right: 550px;
+    display: flex;
+    justify-content: space-between;
+    width: 160px;
+    }
+      
+      #settings-btn {
+        background-color: #4A4E69;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 15px;
+        font-size: 16px;
+        cursor: pointer;
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+        transition: all 0.2s ease;
+      }
+      
+      #settings-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.4);
+      }
+      
+      #back-btn {
+        background-color: #4A4E69;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 15px;
+        font-size: 16px;
+        cursor: pointer;
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+        transition: all 0.2s ease;
+      }
+      
+      #back-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.4);
+      }
+    </style>
 </head>
 <body>
 
 {{> header}}
 
-<div id="container">
+<<div id="container">
     <div id="content">
+        <h1 id="title">{{userName}}</h1> 
         <img src="{{avatar}}" alt="{{userName}}'s profile picture">
         <button id="edit-avatar-btn">Edit Profile Picture</button>
-        <h1 id="title">{{userName}}</h1> 
         <p id="bio">{{bio}}</p>
         <h2 id="link-title">Links:</h2>
         <ul id="links">
@@ -23,6 +109,10 @@
             <li><a href="https://www.{{this}}">{{this}}</a></li>
         {{/each}}
         </ul>
+    </div>
+    <div id="buttons-container">
+        <button id="settings-btn">Settings</button>
+        <button id="back-btn">Back</button>
     </div>
 </div>
 
@@ -58,7 +148,22 @@ btn.onclick = function() {
 span.onclick = function() {
   modal.style.display = "none";
 }
-</script>
 
+// Get the settings button
+const settingsBtn = document.getElementById("settings-btn");
+
+// When the user clicks the settings button, do something
+settingsBtn.onclick = function() {
+  // Add code here to show settings
+}
+
+// Get the back button
+const backBtn = document.getElementById("back-btn");
+
+// When the user clicks the back button, go back one page
+backBtn.onclick = function() {
+  window.history.back();
+}
+</script>
 </body>
 </html>

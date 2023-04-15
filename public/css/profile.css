@@ -1,5 +1,5 @@
 /* General styles */
-body {
+body{
   background-color: #080000;
   font-family: 'Rubik', sans-serif;
   color: #fff;
@@ -22,37 +22,35 @@ body {
 
 /* Profile title */
 #title {
-  font-size: 3rem;
+  font-size: 36px;
   font-weight: bold;
   margin: 0 0 10px;
-  text-align: center;
 }
 
 /* Profile email */
 #idNum {
-  font-size: 1.5rem;
+  font-size: 24px;
   font-weight: bold;
   margin: 0 0 10px;
-  text-align: center;
 }
 
 /* Profile bio */
 #bio {
-  font-size: 1.2rem;
+  font-size: 18px;
   margin: 20px 0;
   line-height: 1.5;
 }
 
 /* Profile links */
 #links {
-  font-size: 1.2rem;
+  font-size: 18px;
   margin: 20px 0;
   line-height: 1.5;
 }
 
 /* Profile links title */
 #link-title {
-  font-size: 1.5rem;
+  font-size: 24px;
   font-weight: bold;
   margin: 0 0 10px;
 }
@@ -64,15 +62,14 @@ body {
   padding: 10px;
   margin-bottom: 10px;
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
-  font-size: 1.2rem;
 }
 
 /* Profile picture */
 img {
   display: block;
-  margin: 20px auto;
-  width: 250px;
-  height: 250px;
+  margin: 0 auto;
+  width: 169px;
+  height: 339px;
   object-fit: cover;
   border-radius: 50%;
   box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
@@ -104,7 +101,7 @@ img {
 .close {
   color: #aaa;
   float: right;
-  font-size: 2rem;
+  font-size: 28px;
   font-weight: bold;
   cursor: pointer;
 }
@@ -116,19 +113,20 @@ img {
 }
 
 #edit-avatar-btn {
-  position: absolute;
-  bottom: -10px;
-  right: -10px;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
+  float: right;
+  margin: 10px;
+  font-size: 16px;
   background-color: #4A4E69;
-  color: #fff;
   border: none;
+  color: #fff;
+  border-radius: 5px;
+  padding: 10px 15px;
   cursor: pointer;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
   transition: all 0.2s ease;
 }
 
 #edit-avatar-btn:hover {
-  transform: translateY(-2px
+  transform: translateY(-2px);
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.4);
 }
