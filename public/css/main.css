@@ -252,10 +252,10 @@ nav > a:hover {
 
 .bigbutton {
   position: fixed;
-  top: 30px;
-  right: 30px;
-  width: 290px !important;
-  height: 80px;
+  top: 20px;
+  margin-left: 975px;
+  width: 190px !important;
+  height: 70px;
   font-family: 'Jost', sans-serif;
   font-size: 24px;
   font-weight: 700;
@@ -291,10 +291,10 @@ nav > a:hover {
 
 .bigbutton3 {
   position: fixed;
-  top: 120px;
-  right: 30px;
-  width: 290px !important;
-  height: 80px;
+  top: 20px;
+  margin-left: 1175px;
+  width: 190px !important;
+  height: 70px;
   font-family: 'Jost', sans-serif;
   font-size: 24px;
   font-weight: 700;
