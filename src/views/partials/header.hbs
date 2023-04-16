@@ -1,27 +1,77 @@
 <nav id="header">
   <a href="/">Home</a>
-  {{!-- <a href="/signup">Sign Up</a> --}}
 
-  {{!-- <div class="search-bar">
-    <form onsubmit="return search(event)">
-      <input type="text" id="search-bar" placeholder="Who are you trying to find...">
-      <button type="submit">Search</button> 
-    </form>
-  </div>
-   --}}
-   <form id="search-form">
-          <input type="text" placeholder="Asan na." id="searchInput">
-          <button type="submit">Search</button> 
-      </form>
+  <form id="search-form">
+    <input type="text" placeholder="Search QuickLinks" id="searchInput">
+    <button type="submit">Search</button> 
+  </form>
 </nav>
+
+<style>
+  #header {
+    background-color: #222;
+    color: #fff;
+    display: flex;
+    margin-left: 4px;
+    align-items: center;
+    height: 80px;
+  }
+
+  #header a {
+    margin-right: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #fff;
+  }
+
+  #search-form {
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+  }
+
+  #searchInput {
+    border: none;
+    background-color: transparent;
+    border-bottom: 2px solid #fff;
+    margin-right: 10px;
+    padding: 5px;
+    font-size: 16px;
+    color: #fff;
+    outline: none;
+  }
+
+  #searchInput::placeholder {
+    color: #ccc;
+  }
+
+  #searchInput:focus {
+    border-bottom: 2px solid #2C56EA;
+  }
+
+  #search-form button {
+    border: none;
+    background-color: #2C56EA;
+    color: #fff;
+    font-size: 16px;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+
+  #search-form button:hover {
+    background-color: #fff;
+    color: #2C56EA;
+  }
+</style>
 
 <script>
   const searchForm = document.getElementById("search-form");
 
-searchForm.addEventListener("submit", (event) => {
-  event.preventDefault(); // prevent the form from submitting normally
-  const searchInput = document.getElementById("searchInput").value;
-  window.location.href = "/profile/" + searchInput;
- // redirect the user to the search results page
-});
+  searchForm.addEventListener("submit", (event) => {
+    event.preventDefault(); // prevent the form from submitting normally
+    const searchInput = document.getElementById("searchInput").value;
+    window.location.href = "/profile/" + searchInput; // redirect the user to the search results page
+  });
 </script>
