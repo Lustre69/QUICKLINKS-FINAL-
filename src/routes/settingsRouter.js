@@ -7,7 +7,7 @@ import User from "../models/UserModel.js";
 const settingsRouter = Router();
 
 // Render the settings view
-settingsRouter.get("/settings", (req, res) => {
+settingsRouter.get("/settings/:userName", (req, res) => {
   // Render the settings view
   res.render("settings", { userName: req.params.userName });
 });
@@ -17,7 +17,23 @@ settingsRouter.post("/settings", (req, res) => {
   const { bio, links } = req.body;
 
   // Update the User model in the database with the new bio and links data
+  const user = {
+
+    userName: req.params.userName,
+    // email:    email,
+    // pw:       pw,
+    // avatar:   avatar,
+    // bio:      bio,
+    // tags:     tags,
+    // links:    links,
+  
+  
+    };
+
+  console.log("Username is" + user.userName);
+
   User.findOneAndUpdate(
+
     { userName: req.user.userName }, // Update the user based on the currently authenticated user
     { bio, links }, // Update the bio and links fields
     { new: true } // Return the updated user object
