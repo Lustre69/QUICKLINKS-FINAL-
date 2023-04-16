@@ -13,62 +13,32 @@ settingsRouter.get("/settings/:userName", (req, res) => {
 });
 
 // Handle form submission from settings view
-settingsRouter.post("/settings/:userName", (req, res) => {
+settingsRouter.post("/settings/:userName", async (req, res) => {
   const bio = req.body.bio;
-  const links    = [];
-  links.push(req.body.link1);
-  links.push(req.body.link2);
-  links.push(req.body.link3);
+  const links = [req.body.link1, req.body.link2, req.body.link3].filter(Boolean); // Filter out null or empty values from links array
 
-  // Update the User model in the database with the new bio and links data
-  (async () => {
-    try {
-      const user = await User.findOneAndUpdate(
-        {userName: req.params.userName},
-        { $set: { bio: bio, links: links } }, // Update the bio and links fields
-        { new: true } // Return the updated user object
-        );
+  try {
+    // Retrieve the existing user object from the database
+    const user = await User.findOne({ userName: req.params.userName });
 
-        console.log("Username is " + user.userName);
-        res.redirect("/profile/" + user.userName);
-
-    } catch(err){
-        console.error(err);
+    // Update the bio and links fields only if they are present in the request body and not null or empty
+    if (bio !== null && bio !== "") {
+      user.bio = bio;
     }
-  })();
+    if (links !== null && links.length > 0) {
+      user.links = links;
+    }
 
-  //console.log("Username(again) is " + user.userName);
+    // Save the updated user object to the database
+    const updatedUser = await user.save();
 
-  // const user = {
-
-  //   userName: req.params.userName,
-  //   // email:    email,
-  //   // pw:       pw,
-  //   // avatar:   avatar,
-  //   // bio:      bio,
-  //   // tags:     tags,
-  //   // links:    links,
-  
-  
-  //   };
-
-  // User.findOneAndUpdate(
-
-  //   { userName: req.user.userName }, // Update the user based on the currently authenticated user
-  //   { bio, links }, // Update the bio and links fields
-  //   { new: true } // Return the updated user object
-  // )
-  //   .then((result) => {
-  //     // Redirect back to the profile view
-  //     res.redirect("/profile/" + result.userName);
-  //   })
-  //   .catch((err) => {
-  //     console.error("An error occurred: " + err);
-  //     res.statusCode = 500;
-  //     res.render("error", {
-  //       code: 500,
-  //     });
-  //   });
+    console.log("Username is " + updatedUser.userName);
+    res.redirect("/profile/" + updatedUser.userName);
+  } catch (err) {
+    console.error(err);
+    // Render an error view or send an error response as appropriate
+    res.status(500).render("error", { code: 500 });
+  }
 });
 
 export default settingsRouter;
