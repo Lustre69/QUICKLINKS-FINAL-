@@ -37,8 +37,8 @@ const startServer = async () => {
   const __dirname = dirname(fileURLToPath(import.meta.url));
   app.use(express.static(__dirname + "/public"));
 
- 
-  
+  // parse form data
+  app.use(express.urlencoded({ extended: false }));
 
   // Assign routes (uses src/routes/index.js)
   app.use(routes);
@@ -54,3 +54,4 @@ const startServer = async () => {
 };
 
 startServer();
+

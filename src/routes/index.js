@@ -1,13 +1,5 @@
-// Express
 import { Router } from "express";
-// Routers
-import signupRouter from "./signupRouter.js";
-import loginRouter from "./loginRouter.js";
-import profileRouter from "./profileRouter.js";
-import signup_successRouter from "./signup_successRouter.js";
-import login_successRouter from "./login_successRouter.js";
-import settings_successRouter from "./settings_successRouter.js";
-import settingsRouter from "./settingsRouter.js";
+import searchRouter from "./searchRouter.js"; // import the search router
 
 const routes = Router();
 
@@ -54,7 +46,11 @@ routes.use(settings_successRouter);
 */
 routes.use(profileRouter);
 
-routes.use(settingsRouter);
+/*
+  Use routes defined in ./searchRouter.js for handling search request
+*/
+routes.use(searchRouter);
+
 /* 
   If the route is not defined in the server, render `../views/error.hbs`.
   Always define this as the last middleware!

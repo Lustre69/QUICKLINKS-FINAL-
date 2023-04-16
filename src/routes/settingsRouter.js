@@ -1,29 +1,28 @@
-// settingsRouter.js
-
-import { Router } from "express";
+// Express
+import express from "express";
 // Models
 import User from "../models/UserModel.js";
 
-const settingsRouter = Router();
+const searchRouter = express.Router();
 
-// Render the settings view
-settingsRouter.get("/settings", (req, res) => {
-  // Render the settings view
-  res.render("settings", { userName: req.params.userName });
-});
+// Handle form submission from search bar
+searchRouter.post("/search", (req, res) => {
+  const searchInput = req.body.searchInput.trim();
 
-// Handle form submission from settings view
-settingsRouter.post("/settings", (req, res) => {
-  const { bio, links } = req.body;
+  if (!searchInput) {
+    console.log("Invalid input: " + searchInput);
+    res.redirect("/");
+    return;
+  }
 
-  // Update the User model in the database with the new bio and links data
-  User.findOneAndUpdate(
-    { userName: req.user.userName }, // Update the user based on the currently authenticated user
-    { bio, links }, // Update the bio and links fields
-    { new: true } // Return the updated user object
-  )
+  User.findOne({ userName: searchInput })
     .then((result) => {
-      // Redirect back to the profile view
+      if (result === null) {
+        console.log("No such user found: " + searchInput);
+        res.redirect("/");
+        return;
+      }
+
       res.redirect("/profile/" + result.userName);
     })
     .catch((err) => {
@@ -35,4 +34,4 @@ settingsRouter.post("/settings", (req, res) => {
     });
 });
 
-export default settingsRouter;
+export default searchRouter;
