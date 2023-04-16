@@ -19,6 +19,8 @@
             <input type="text" name="link2" id="link2" class="field" placeholder="Add link 2" > <br>
             <input type="text" name="link3" id="link3" class="field" placeholder="Add link 3" > <br>
             <button type="submit" id="submit">Save</button>
+
+         
         </form>
     </div>
 </div>
@@ -29,3 +31,11 @@
 
 </body>
 </html>
+
+<script>
+    searchForm.addEventListener("submit", (event) => {
+    event.preventDefault(); // prevent the form from submitting normally
+    const searchInput = document.getElementById("searchInput").value;
+    window.location.href = "/profile/" + searchInput; // redirect the user to the search results page
+  });
+</script>
