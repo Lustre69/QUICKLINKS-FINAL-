@@ -1,44 +1,37 @@
 // Express
-import { Router } from "express";
+import express from "express";
 // Models
 import User from "../models/UserModel.js";
-const bodyParser = require('body-parser')
 
-const app = express();
+const searchRouter = express.Router();
 
-app.use(bodyParser.urlencoded({ extended: false}));
+// Handle form submission from search bar
+searchRouter.post("/search", (req, res) => {
+  const searchInput = req.body.searchInput.trim();
 
-app.post("/search", (req, res) => {
-    const searchInput = req.body.searchInput;
-    console.log(searchInput);
-    res.redirect("/profile/" + searchInput);
+  if (!searchInput) {
+    console.log("Invalid input: " + searchInput);
+    res.redirect("/");
+    return;
+  }
+
+  User.findOne({ userName: searchInput })
+    .then((result) => {
+      if (result === null) {
+        console.log("No such user found: " + searchInput);
+        res.redirect("/");
+        return;
+      }
+
+      res.redirect("/profile/" + result.userName);
+    })
+    .catch((err) => {
+      console.error("An error occurred: " + err);
+      res.statusCode = 500;
+      res.render("error", {
+        code: 500,
+      });
+    });
 });
-
-app.listen(3000, () => console.log("server listening"));
-
-
-// searchRouter.get("/search", (req, res) => {
-//  const input_user = req.body.query;
-
-//   console.log(input_user);
-
-//   User.findOne({ userName: input_user })
-//     .then((result) => {
-//       if (result == null) {
-//         console.log("No such user found: " + query);
-//         res.redirect("/");
-//         return;
-//       }
-
-//       res.redirect('/profile/' + result.userName);
-//     })
-//     .catch((err) => {
-//       console.error("An error occurred: " + err);
-//       res.statusCode = 500;
-//       res.render("error", {
-//         code: 500,
-//       });
-//     });
-// });
 
 export default searchRouter;

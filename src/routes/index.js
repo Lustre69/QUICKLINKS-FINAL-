@@ -1,6 +1,14 @@
+// Express
 import { Router } from "express";
-import searchRouter from "./searchRouter.js"; // import the search router
-
+// Routers
+import signupRouter from "./signupRouter.js";
+import loginRouter from "./loginRouter.js";
+import profileRouter from "./profileRouter.js";
+import signup_successRouter from "./signup_successRouter.js";
+import login_successRouter from "./login_successRouter.js";
+import settings_successRouter from "./settings_successRouter.js";
+import settingsRouter from "./settingsRouter.js";
+import searchRouter from "./searchRouter.js";
 const routes = Router();
 
 /*
