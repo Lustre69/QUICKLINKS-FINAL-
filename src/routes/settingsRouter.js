@@ -14,14 +14,18 @@ settingsRouter.get("/settings/:userName", (req, res) => {
 
 // Handle form submission from settings view
 settingsRouter.post("/settings/:userName", (req, res) => {
-  const { bio, links } = req.body;
+  const bio = req.body.bio;
+  const links    = [];
+  links.push(req.body.link1);
+  links.push(req.body.link2);
+  links.push(req.body.link3);
 
   // Update the User model in the database with the new bio and links data
   (async () => {
     try {
       const user = await User.findOneAndUpdate(
         {userName: req.params.userName},
-        { bio, links }, // Update the bio and links fields
+        { $set: { bio: bio, links: links } }, // Update the bio and links fields
         { new: true } // Return the updated user object
         );
 
