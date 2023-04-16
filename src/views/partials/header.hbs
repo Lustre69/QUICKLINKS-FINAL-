@@ -72,6 +72,6 @@
   searchForm.addEventListener("submit", (event) => {
     event.preventDefault(); // prevent the form from submitting normally
     const searchInput = document.getElementById("searchInput").value;
-    window.location.href = "/profile/" + searchInput; // redirect the user to the search results page
+    window.location.href = "/profile/" + searchInput + "/search"; // redirect the user to the search results page
   });
 </script>

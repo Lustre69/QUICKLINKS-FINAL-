@@ -6,6 +6,7 @@ import loginRouter from "./loginRouter.js";
 import profileRouter from "./profileRouter.js";
 import signup_successRouter from "./signup_successRouter.js";
 import login_successRouter from "./login_successRouter.js";
+import profile_searchRouter from "./profile_searchRouter.js";
 import settings_successRouter from "./settings_successRouter.js";
 import settingsRouter from "./settingsRouter.js";
 import searchRouter from "./searchRouter.js";
@@ -43,6 +44,11 @@ routes.use(signup_successRouter);
   Use routes defined in ./login_successRouter.js
 */
 routes.use(login_successRouter);
+
+/*
+  Use routes defined in ./profile_searchRouter.js
+*/
+routes.use(profile_searchRouter);
 
 /*
   Use routes defined in ./settings_successRouter.js
